@@ -44,9 +44,10 @@ export async function POST(req: Request) {
 
   const id = chatId || nanoid();
 
-  // Check if chat already exists for the given ID
-  // If not, create it now
+  console.error("Check if chat already exists for the given ID");
+  console.error("If not, create it now");
   let isNewChat = false;
+  console.error("ES CHAT NUEVO? "+isNewChat);
   if (chatId) {
     try {
       const existingChat = await db.query.chats.findFirst({
@@ -56,19 +57,22 @@ export async function POST(req: Request) {
         )
       });
       isNewChat = !existingChat;
+      console.error("ES CHAT NUEVO? "+isNewChat);
     } catch (error) {
       console.error("Error checking for existing chat:", error);
       isNewChat = true;
+      console.error("ES CHAT NUEVO? "+isNewChat);
     }
   } else {
-    // No ID provided, definitely new
+    console.error("No ID provided, definitely new");
     isNewChat = true;
+    console.error("ES CHAT NUEVO? "+isNewChat);
   }
-
-  // If it's a new chat, save it immediately
+  console.error("ES CHAT NUEVO? "+isNewChat);
+  console.error("If it's a new chat, save it immediately");
   if (isNewChat && messages.length > 0) {
     try {
-      // Generate a title based on first user message
+      console.error("Generate a title based on first user message");
       const userMessage = messages.find(m => m.role === 'user');
       let title = 'New Chat';
 
@@ -80,7 +84,7 @@ export async function POST(req: Request) {
         }
       }
 
-      // Save the chat immediately so it appears in the sidebar
+      console.error("Save the chat immediately so it appears in the sidebar");
       await saveChat({
         id,
         userId,

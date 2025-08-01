@@ -241,10 +241,16 @@ export function getTextContent(message: Message): string {
 }
 
 export async function getChats(userId: string) {
-  return await db.query.chats.findMany({
-    where: eq(chats.userId, userId),
-    orderBy: [desc(chats.updatedAt)]
-  });
+  try{
+    return await db.query.chats.findMany({
+      where: eq(chats.userId, userId),
+      orderBy: [desc(chats.updatedAt)]
+    });
+  } catch (e) {
+    // If parsing fails, return empty string
+    return '';
+  }
+  
 }
 
 export async function getChatById(id: string, userId: string): Promise<ChatWithMessages | null> {

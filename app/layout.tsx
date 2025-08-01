@@ -13,11 +13,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mcpchat.scira.ai"),
-  title: "Mifos Agentic Chat with MCP support",
+  title: "Agentic Chat with MCP support",
   description:
-    "Mifos Agentic Chat with MCP support is a minimalistic MCP client with a good feature set.",
+    "Agentic Chat with MCP support is a minimalistic MCP client with a good feature set.",
   openGraph: {
-    siteName: "Mifos Agentic Chat with MCP support",
+    siteName: " Agentic Chat with MCP support",
     url: "https://mcpchat.scira.ai",
     images: [
       {
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mifos Agentic Chat with MCP support",
+    title: "Agentic Chat with MCP support",
     description:
-      "Mifos Agentic Chat with MCP support is a minimalistic MCP client with a good feature set.",
+      "Agentic Chat with MCP support is a minimalistic MCP client with a good feature set.",
     images: ["https://mcpchat.scira.ai/twitter-image.png"],
   },
 };
